@@ -1,3 +1,3 @@
 # EaintcherryMB-IMEI-Checker---LPA
 
-Link// “https://github.com/EaintcherryMB/EaintcherryMB-IMEI-Checker---LPA.git"
+Link// “https://eaintcherrymb.github.io/EaintcherryMB-IMEI-Checker---LPA/"
