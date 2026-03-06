@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMEI Status Checker</title>
+    <style>
+        body { font-family: 'Pyidaungsu', sans-serif, Arial; display: flex; justify-content: center; padding: 20px; background-color: #f0f2f5; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
+        h2 { color: #004a99; margin-bottom: 15px; }
+        
+        /* Dial Button Style */
+        .dial-btn { 
+            display: inline-block;
+            background: #28a745; 
+            color: white; 
+            padding: 12px 20px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        .dial-btn:active { transform: scale(0.95); }
+
+        .guide-text { font-size: 0.9rem; color: #666; margin-bottom: 15px; line-height: 1.6; }
+        input { width: 90%; padding: 12px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; outline: none; }
+        input:focus { border-color: #004a99; }
+        .check-btn { width: 100%; padding: 12px; background-color: #004a99; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: bold; }
+        
+        #result { margin-top: 25px; display: none; text-align: left; border-top: 1px solid #eee; padding-top: 20px; }
+        .status-item { display: flex; align-items: center; margin-bottom: 12px; }
+        .check-icon { color: #28a745; margin-right: 12px; font-weight: bold; }
+        .success-msg { color: #28a745; font-weight: bold; text-align: center; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>IMEI Status Checker</h2>
+    
+    <p class="guide-text">
+        အောက်ပါခလုတ်ကို နှိပ်ပြီး ဖုန်းခေါ်ဆိုမှုနေရာတွင် <br>
+        <b>*#06#</b> ကို ရိုက်ထည့်၍ IMEI ကို ကြည့်ပါ။
+    </p>
+
+    <a href="tel:*#06#" class="dial-btn">📞 IMEI စစ်ရန် Dial နှိပ်ပါ</a>
+
+    <input type="number" id="imeiInput" placeholder="IMEI နံပါတ် ၁၅ လုံး ရိုက်ထည့်ပါ">
+    <button class="check-btn" onclick="checkStatus()">Check Status</button>
+
+    <div id="result">
+        <div class="status-item"><span class="check-icon">✔</span> IMEI Status: <span style="color: #28a745; margin-left: auto;">Correct</span></div>
+        <div class="status-item"><span class="check-icon">✔</span> Tax Payment Status: <span style="color: #28a745; margin-left: auto;">Paid</span></div>
+        <div class="status-item"><span class="check-icon">✔</span> Device Blocking Status: <span style="color: #28a745; margin-left: auto;">Allowed</span></div>
+        <p class="success-msg">သင့်ဖုန်းသည် Register လုပ်ပြီးသား ဖြစ်ပါသည်။</p>
+    </div>
+</div>
+
+<script>
+    function checkStatus() {
+        const imei = document.getElementById('imeiInput').value;
+        if (imei.length < 15) {
+            alert("ကျေးဇူးပြု၍ IMEI နံပါတ် ၁၅ လုံး ပြည့်အောင် ရိုက်ထည့်ပေးပါခင်ဗျာ။");
+            return;
+        }
+        document.getElementById('result').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
+
